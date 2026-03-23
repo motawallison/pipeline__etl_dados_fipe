@@ -71,8 +71,11 @@ def normalize_currency_columns(df: pd.DataFrame, columns_names: list[str]) -> pd
             )
     return df
 
-
 def data_transformation(df: pd.DataFrame) -> pd.DataFrame:
+    logging.info("Limpando registros com AnoModelo inválido (32000)...")
+    df = df[df['AnoModelo'] != 32000].copy()
+    logging.info(f"Filtro aplicado. Linhas restantes: {len(df)}")
+
     df = drop_columns(df, COLUMNS_TO_DROP)
     df = rename_columns(df, COLUMNS_TO_RENAME)
     df = normalize_datetime_columns(df, ['MesReferencia'])
