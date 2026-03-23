@@ -40,7 +40,7 @@ def extract_all():
 
             for ano in anos_list:
                 ano_id = ano['codigo']
-                # 2. Busca o detalhe final (Preço) de cada ano
+                # 2. Busca o detalhe preço de cada ano
                 url_final = f"{url_anos}/{ano_id}"
                 detalhe = fetch_api(url_final)
 
