@@ -82,6 +82,9 @@ def data_transformation(df: pd.DataFrame) -> pd.DataFrame:
     df = normalize_datetime_columns(df, ['MesReferencia'])
     df = normalize_currency_columns(df, ['Valor'])
     
+    logging.info("Convertendo AnoModelo para o tipo Date...")
+    df['AnoModelo'] = pd.to_datetime(df['AnoModelo'].astype(str) + '-01-01')
+
     logging.info("Transformações concluídas")
 
     return df
