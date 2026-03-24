@@ -73,6 +73,7 @@ def normalize_currency_columns(df: pd.DataFrame, columns_names: list[str]) -> pd
 
 def data_transformation(df: pd.DataFrame) -> pd.DataFrame:
     logging.info("Limpando registros com AnoModelo inválido (32000)...")
+    df['AnoModelo'] = pd.to_numeric(df['AnoModelo'], errors='coerce')
     df = df[df['AnoModelo'] != 32000].copy()
     logging.info(f"Filtro aplicado. Linhas restantes: {len(df)}")
 
