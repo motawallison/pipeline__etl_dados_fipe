@@ -1,31 +1,6 @@
-name: Fipe Pipeline ETL
-
-on:
-  schedule:
-    # Roda todo dia 1º de cada mês às 03:00 AM
-    - cron: '0 3 1 * *'
-  workflow_dispatch: # Permite rodar manualmente pelo botão
-
-jobs:
-  run-pipeline:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Install uv
-        uses: astral-sh/setup-uv@v3
-
-      - name: Set up Python
-        run: uv python install
-
-      - name: Restore Google Credentials
-        run: |
-          mkdir -p config
-          echo "${{ secrets.GCP_SA_KEY }}" > config/google_credentials.json
-
       - name: Run ETL Pipeline
         run: |
           uv run src/extract_data.py
           uv run src/load_data.py
+        env:
+          GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
