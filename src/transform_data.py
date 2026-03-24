@@ -88,3 +88,4 @@ def data_transformation(df: pd.DataFrame) -> pd.DataFrame:
     logging.info("Transformações concluídas")
 
     return df
+# Versão final com AnoModelo como Date.
