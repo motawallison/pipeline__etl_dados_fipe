@@ -76,9 +76,9 @@ Se você quiser mostrar que o projeto é escalável, adicione logo abaixo desta 
 "Para expandir o monitoramento, basta incluir o código FIPE da marca e do modelo desejado no arquivo de configuração do pipeline. O sistema GitHub Actions detectará as novas entradas e atualizará o BigQuery automaticamente na próxima execução."
 
 📈 Roadmap de Evolução
-[ ] Implementar comparação direta entre dois modelos (ex: Corolla vs Civic).
+[ ] Containerização: Implementar Docker para garantir a portabilidade total do pipeline.
 
-[ ] Adicionar previsão de preço futuro usando modelos de regressão.
+[ ] Implementar comparação direta entre dois modelos (ex: Corolla vs Civic).
 
 [ ] Adicionar mais modelos de veículos
 
