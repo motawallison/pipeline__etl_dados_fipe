@@ -35,7 +35,7 @@ def load_to_bigquery(df: pd.DataFrame):
             df,
             destination_table=f"{DATASET_ID}.{TABLE_ID}",
             project_id=PROJECT_ID,
-            if_exists='replace',
+            if_exists='append',
             credentials=credentials
         )
         
